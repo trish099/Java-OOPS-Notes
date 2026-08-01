@@ -1,231 +1,152 @@
-# What is Object-Oriented Programming (OOP)?
+# Classes and Objects
 
 ## Definition
 
-Object-Oriented Programming (OOP) is a way of writing programs by thinking in terms of **objects** rather than just instructions.
+Classes and Objects are the foundation of Object-Oriented Programming (OOP).
 
-An object is anything that has:
-
-* **Data (State)** → What it has.
-* **Behavior (Methods)** → What it can do.
-
-Almost everything around us can be considered an object.
-
-For example:
-
-* Car
-* Student
-* Mobile Phone
-* Laptop
-* Bank Account
-
-All of these have some information (data) and can perform some actions (behavior).
-
-Java is mainly based on the Object-Oriented Programming paradigm.
-
----
-
-# Why was OOP introduced?
-
-Imagine you have to write software for a college.
-
-The college has:
-
-* 20,000 students
-* 500 teachers
-* Hundreds of classrooms
-* Thousands of courses
-
-If we write everything in one big file using only variables and functions, the code quickly becomes:
-
-* difficult to understand
-* difficult to modify
-* difficult to debug
-* difficult to reuse
-
-OOP solves this problem by dividing the program into small independent objects.
-
-Instead of thinking,
-
-> "How should I write this program?"
-
-we think,
-
-> "What objects exist in this system?"
-
-For a college management system, the objects could be:
-
-* Student
-* Teacher
-* Course
-* Library
-* Classroom
-
-Each object handles its own work.
-
-This makes the code much cleaner.
+Everything in Java revolves around classes and objects.
 
 ---
 
 # What is a Class?
 
-A **class** is a blueprint or design for creating objects.
+A class is a **blueprint** or **template** used to create objects.
 
-Think of it like the blueprint of a house.
+It tells Java:
 
-A blueprint tells us:
+- What data an object will store.
+- What actions an object can perform.
 
-* How many rooms the house will have.
-* Where the doors will be.
-* Where the windows will be.
+Think of a class as a design or plan.
 
-But...
+It does **not** occupy memory for individual objects until an object is created.
 
-You cannot live inside the blueprint.
+### Real-Life Example
 
-Similarly,
+Imagine a company that manufactures cars.
 
-A class only describes an object.
+Before making a car, engineers create a **design**.
 
-It is **not** the actual object.
+That design contains:
 
-Example:
+- Engine type
+- Number of doors
+- Color options
+- Fuel type
 
-```
-Student
-
-Properties:
-- name
-- age
-- rollNumber
-
-Methods:
-- study()
-- attendClass()
-- giveExam()
-```
-
-This is only the design.
-
-No actual student has been created yet.
+This design is similar to a **class**.
 
 ---
 
 # What is an Object?
 
-An **object** is a real instance of a class.
+An object is a **real instance of a class**.
 
-If "Student" is a class,
+Objects are created using the class.
 
-Then
+Unlike a class, an object occupies memory.
 
-Student 1
+Every object has its own data.
 
-* Name: Rahul
-* Age: 19
+### Example
 
-Student 2
+If Car is a class,
 
-* Name: Priya
-* Age: 20
+then
 
-Student 3
-
-* Name: Aman
-* Age: 18
+- My Audi
+- Your BMW
+- Friend's Thar
 
 are different objects.
 
-They all belong to the same class but store different values.
-
-One class can create thousands or even millions of objects.
+All belong to the Car class but contain different values.
 
 ---
 
-# Properties (State)
+# Class vs Object
 
-Properties are the information stored inside an object.
-
-For a Car:
-
-```
-Brand
-Color
-Price
-Speed
-Fuel Type
-```
-
-These describe the current state of the car.
-
-Different cars can have different values.
+| Class | Object |
+|--------|--------|
+| Blueprint | Real instance |
+| Logical entity | Physical entity |
+| Doesn't store individual values | Stores actual values |
+| Doesn't occupy memory for data | Occupies memory |
+| Used to create objects | Created from a class |
 
 ---
 
-# Methods (Behavior)
-
-Methods define what an object can do.
-
-For a Car:
-
-```
-start()
-stop()
-accelerate()
-brake()
-```
-
-These actions are called behaviors.
-
----
-
-# Simple Java Example
+# Syntax
 
 ```java
-class Car {
+class ClassName{
 
-    // Properties (State)
-    String brand;
-    String color;
+    // Variables
 
-    // Method (Behavior)
-    void start() {
-        System.out.println(brand + " is starting...");
-    }
+    // Methods
+
 }
 
-public class Main {
+public class Main{
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
-        // Creating an object
-        Car car1 = new Car();
+        ClassName objectName = new ClassName();
 
-        // Assigning values
-        car1.brand = "Audi";
-        car1.color = "Black";
-
-        // Accessing properties
-        System.out.println(car1.brand);
-        System.out.println(car1.color);
-
-        // Calling method
-        car1.start();
     }
+
 }
 ```
 
 ---
 
-# Dry Run (Line by Line)
+# First Example
+
+```java
+class Student{
+
+    String name;
+    int age;
+
+}
+
+public class Main{
+
+    public static void main(String[] args){
+
+        Student s1 = new Student();
+
+        s1.name = "Utsav";
+        s1.age = 19;
+
+        System.out.println(s1.name);
+        System.out.println(s1.age);
+
+    }
+
+}
+```
+
+---
+
+# Output
+
+```
+Utsav
+19
+```
+
+---
+
+# Dry Run
 
 ### Step 1
 
 ```java
-class Car
+class Student
 ```
 
-Java creates a blueprint called **Car**.
+A blueprint called Student is created.
 
 No object exists yet.
 
@@ -234,214 +155,185 @@ No object exists yet.
 ### Step 2
 
 ```java
-Car car1 = new Car();
+Student s1 = new Student();
 ```
 
-This line creates the first object.
+Java creates one Student object in memory.
 
-Memory is allocated for this object.
-
-Now `car1` refers to that object.
+`s1` stores the reference to that object.
 
 ---
 
 ### Step 3
 
 ```java
-car1.brand = "Audi";
+s1.name = "Utsav";
 ```
 
-The `brand` property of `car1` now stores `"Audi"`.
+The name variable inside the object now stores "Utsav".
 
 ---
 
 ### Step 4
 
 ```java
-car1.color = "Black";
+s1.age = 19;
 ```
 
-The `color` property now stores `"Black"`.
+The age variable stores 19.
 
 ---
 
 ### Step 5
 
 ```java
-System.out.println(car1.brand);
+System.out.println(s1.name);
 ```
 
-Output:
+Prints
 
 ```
-Audi
+Utsav
 ```
 
 ---
 
-### Step 6
+# Multiple Objects
+
+One class can create many objects.
 
 ```java
-car1.start();
+class Student{
+
+    String name;
+    int age;
+
+}
+
+public class Main{
+
+    public static void main(String[] args){
+
+        Student s1 = new Student();
+        Student s2 = new Student();
+
+        s1.name = "Rahul";
+        s1.age = 18;
+
+        s2.name = "Priya";
+        s2.age = 20;
+
+        System.out.println(s1.name + " " + s1.age);
+        System.out.println(s2.name + " " + s2.age);
+
+    }
+
+}
 ```
 
-The `start()` method is executed.
-
-Since `brand = "Audi"`,
-
-Output becomes:
+### Output
 
 ```
-Audi is starting...
+Rahul 18
+Priya 20
 ```
 
----
-
-# Output
-
-```
-Audi
-Black
-Audi is starting...
-```
+Notice that both objects belong to the same class but store different values.
 
 ---
 
-# Why is OOP so popular?
+# Why Do We Need Classes?
 
-Large applications like:
+Imagine creating details for 10,000 students.
 
-* Instagram
-* WhatsApp
-* Amazon
-* Flipkart
-* Banking Systems
+Without classes, you would need thousands of variables.
 
-contain millions of lines of code.
+Classes let us create as many objects as we need using the same blueprint.
 
-Without OOP, managing such applications would be extremely difficult.
-
-OOP makes software:
-
-* Organized
-* Reusable
-* Easy to maintain
-* Easy to expand
-
----
-
-# Advantages
-
-### 1. Code Reusability
-
-Write once, use many times.
-
----
-
-### 2. Better Organization
-
-Every object manages its own work.
-
----
-
-### 3. Easier Maintenance
-
-If one class has a bug, we usually fix only that class instead of the whole program.
-
----
-
-### 4. Real-World Modeling
-
-Real-world things can be represented naturally.
-
-Example:
-
-Student
-
-Car
-
-Employee
-
-Bank Account
-
-Hospital
-
----
-
-### 5. Security
-
-OOP allows us to hide important data from direct access using encapsulation.
-
----
-
-# Disadvantages
-
-* Requires more planning before coding.
-* Uses slightly more memory than simple procedural programs.
-* Can feel complex for very small programs.
+This reduces code duplication and makes programs easier to maintain.
 
 ---
 
 # Real-Life Analogy
 
-Imagine a classroom.
+Think of a cookie cutter.
 
-The **Student** class defines:
+- Cookie Cutter → Class
+- Cookies → Objects
 
-* Name
-* Roll Number
-* Branch
+One cookie cutter can create many cookies.
 
-Every student in the classroom is an object.
-
-Although every student belongs to the same class, each has different values.
-
-This is exactly how objects work in Java.
+Similarly, one class can create many objects.
 
 ---
 
 # Interview Questions
 
-### What is OOP?
+## 1. What is a class?
 
-OOP is a programming paradigm that organizes programs using objects containing data and methods.
-
----
-
-### What is a class?
-
-A class is a blueprint used to create objects.
+A class is a blueprint or template used to create objects.
 
 ---
 
-### What is an object?
+## 2. What is an object?
 
-An object is an instance of a class.
-
----
-
-### What is the difference between a class and an object?
-
-| Class                         | Object               |
-| ----------------------------- | -------------------- |
-| Blueprint                     | Real instance        |
-| No memory for individual data | Occupies memory      |
-| Used to create objects        | Created from a class |
+An object is an instance of a class that stores actual data.
 
 ---
 
-### Why do we use OOP?
+## 3. Can we create multiple objects from one class?
 
-Because it makes programs modular, reusable, maintainable, secure, and closer to real-world design.
+Yes.
+
+A single class can create any number of objects.
+
+---
+
+## 4. Does a class occupy memory?
+
+The class itself does not store individual object data.
+
+Memory for data is allocated when objects are created.
+
+---
+
+## 5. What is the difference between a class and an object?
+
+A class is the blueprint.
+
+An object is the actual implementation of that blueprint.
 
 ---
 
 # Key Points
 
-* OOP stands for Object-Oriented Programming.
-* Java is primarily object-oriented.
-* A class is a blueprint.
-* An object is an actual instance of a class.
-* Objects contain **state (properties)** and **behavior (methods)**.
-* One class can create many objects.
-* OOP becomes especially useful when building large software systems.
+- A class is a blueprint.
+- An object is an instance of a class.
+- Objects store actual data.
+- One class can create multiple objects.
+- Objects are created using the `new` keyword.
+- Every object has its own copy of instance variables.
+
+---
+
+# Summary
+
+Suppose a university has a **Student** class.
+
+The class defines that every student has:
+
+- Name
+- Age
+- Roll Number
+
+Now create three students:
+
+- Utsav
+- Rahul
+- Priya
+
+All three are different objects.
+
+Each stores different values but follows the same class design.
+
+This is the basic idea behind Classes and Objects in Java.
